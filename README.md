@@ -1,4 +1,4 @@
-# TraceWise
+# TraceWise - Intelligent Bug Evaluation And Algorithm Visualization
 
 **Built for the CodeWiser Hackathon! 🏆**
 
