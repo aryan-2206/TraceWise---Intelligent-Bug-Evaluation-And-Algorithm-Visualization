@@ -140,13 +140,145 @@ const VisualizationPanel = ({ visualizationData }) => {
           </div>
         );
       
-      default:
-        return (
-           <div className="p-8 text-center bg-surface/50 rounded-xl border border-white/5">
+      case 'dfs':
+      case 'bfs':
+      case 'dijkstra':
+        const graphData = visualizationData.graph_data?.data;
+        if (!graphData || !graphData.nodes) {
+          return (
+            <div className="p-8 text-center bg-surface/50 rounded-xl border border-white/5">
               <Layers size={32} className="mx-auto mt-2 text-slate-600 mb-3" />
-              <p className="text-slate-400">Trace visualization not yet implemented for this algorithm mode.</p>
-           </div>
+              <p className="text-slate-400">Invalid graph data payload.</p>
+            </div>
+          );
+        }
+
+        return (
+          <div className="space-y-4 mt-2 max-w-full overflow-x-auto hide-scrollbar">
+            <div className="relative w-full h-64 sm:h-72 flex justify-center perspective-1000">
+              <svg className="absolute inset-0 w-full h-full overflow-visible" viewBox="0 0 500 250">
+                <defs>
+                  <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="22" refY="3" orient="auto">
+                    <polygon points="0 0, 8 3, 0 6" fill="rgba(255,255,255,0.2)"/>
+                  </marker>
+                </defs>
+                
+                {/* Edges */}
+                <AnimatePresence>
+                  {graphData.edges.map((edge, idx) => {
+                    const fromNode = graphData.nodes.find(n => n.id === edge.from);
+                    const toNode = graphData.nodes.find(n => n.id === edge.to);
+                    if (!fromNode || !toNode) return null;
+                    
+                    // Check if this edge is active (the "previous" array could track it, but we can animate active transitions if the current visited path implies it).
+                    const isVisited = step.visited_nodes?.includes(edge.from) && step.visited_nodes?.includes(edge.to);
+                    
+                    return (
+                      <motion.line
+                        key={`edge-${idx}`}
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={{ pathLength: 1, opacity: isVisited ? 0.8 : 0.2 }}
+                        x1={fromNode.x}
+                        y1={fromNode.y}
+                        x2={toNode.x}
+                        y2={toNode.y}
+                        stroke={isVisited ? '#0ea5e9' : 'currentColor'}
+                        strokeWidth={isVisited ? 3 : 2}
+                        className={isVisited ? 'text-primary-500' : 'text-slate-600'}
+                        markerEnd="url(#arrowhead)"
+                      />
+                    );
+                  })}
+                </AnimatePresence>
+
+                {/* Nodes */}
+                {graphData.nodes.map((node) => {
+                  let status = 'unvisited';
+                  let bgStyle = 'fill-[#1a1a24] stroke-[#334155]';
+                  let textStyle = '#94a3b8';
+                  let shadow = '';
+                  
+                  const stateNode = step.node_states?.find(n => n.id === node.id);
+                  if (stateNode) status = stateNode.status;
+
+                  if (status === 'visited') {
+                    bgStyle = 'fill-[#0ea5e9]/20 stroke-[#0ea5e9]';
+                    textStyle = '#bae6fd';
+                  } else if (status === 'current') {
+                    bgStyle = 'fill-[#a855f7] stroke-[#c084fc]';
+                    textStyle = '#ffffff';
+                    shadow = 'drop-shadow(0 0 12px rgba(168,85,247,0.8))';
+                  } else if (status === 'highlighted') {
+                    bgStyle = 'fill-[#38bdf8] stroke-[#7dd3fc]';
+                    textStyle = '#ffffff';
+                    shadow = 'drop-shadow(0 0 8px rgba(56,189,248,0.6))';
+                  }
+
+                  return (
+                    <g key={`node-${node.id}`} className="transition-all duration-300 transform-gpu" style={{ filter: shadow }}>
+                      <motion.circle
+                        initial={{ scale: 0 }}
+                        animate={{ scale: status === 'current' ? 1.1 : 1 }}
+                        cx={node.x}
+                        cy={node.y}
+                        r="20"
+                        className={`${bgStyle} stroke-2 transition-colors duration-300`}
+                      />
+                      <text
+                        x={node.x}
+                        y={node.y}
+                        dy=".3em"
+                        textAnchor="middle"
+                        fill={textStyle}
+                        className="font-mono text-sm font-bold transition-colors duration-300 pointer-events-none"
+                      >
+                        {node.label}
+                      </text>
+                      
+                      {stateNode?.distance !== undefined && (
+                        <text
+                          x={node.x}
+                          y={node.y - 25}
+                          textAnchor="middle"
+                          fill="#c084fc"
+                          className="font-mono text-xs font-semibold"
+                        >
+                          {stateNode.distance === Infinity ? '∞' : stateNode.distance}
+                        </text>
+                      )}
+                    </g>
+                  );
+                })}
+              </svg>
+            </div>
+
+            {/* Step Description */}
+            <motion.div 
+              key={`desc-${currentStep}`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-surface/50 border border-white/5 p-4 rounded-xl text-center text-slate-300 min-h-[4rem] flex flex-col items-center justify-center font-medium gap-2"
+            >
+              <div>{step.description || "Processing graph..."}</div>
+              
+              {/* Optional data structures context */}
+              <div className="flex gap-4 text-xs font-mono mt-2">
+                {step.stack && (
+                  <div className="bg-white/5 px-3 py-1 rounded text-primary-300">
+                    Stack: [{step.stack.join(', ')}]
+                  </div>
+                )}
+                {step.queue && (
+                  <div className="bg-white/5 px-3 py-1 rounded text-accent-300">
+                    Queue: [{step.queue.join(', ')}]
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </div>
         );
+      
+      default:
     }
   };
 
@@ -179,11 +311,11 @@ const VisualizationPanel = ({ visualizationData }) => {
             <ChevronLeft size={18} /> Previous
           </button>
           
-          <div className="flex gap-1.5">
+          <div className="flex flex-wrap justify-center gap-1.5 max-w-[150px] sm:max-w-[250px] md:max-w-[400px] max-h-[3rem] overflow-y-auto hide-scrollbar">
              {visualizationData.steps.map((_, i) => (
                 <div 
                    key={i} 
-                   className={`h-2 rounded-full transition-all duration-300 ${
+                   className={`h-2 rounded-full transition-all duration-300 flex-shrink-0 ${
                       i === currentStep ? 'w-6 bg-primary-500 shadow-[0_0_8px_rgba(14,165,233,0.8)]' : 
                       i < currentStep ? 'w-2 bg-primary-500/50' : 'w-2 bg-white/10'
                    }`}
