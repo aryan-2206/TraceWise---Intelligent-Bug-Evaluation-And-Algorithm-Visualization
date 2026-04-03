@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Home.css';
 
 const Home = () => {
   return (
@@ -10,10 +11,10 @@ const Home = () => {
             TraceWise
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Advanced algorithm analysis and visualization tool. Detect bugs, analyze complexity, 
+            Advanced algorithm analysis and visualization tool. Detect bugs, analyze complexity,
             and understand your code better with interactive visualizations.
           </p>
-          
+
           <Link
             to="/analyzer"
             className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition-colors"
@@ -21,7 +22,7 @@ const Home = () => {
             Start Analyzing
           </Link>
         </div>
-        
+
         <div className="mt-16 grid md:grid-cols-3 gap-8">
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="text-blue-600 text-3xl mb-4">🔍</div>
@@ -30,7 +31,7 @@ const Home = () => {
               Automatically identify algorithms and detect potential bugs in your code.
             </p>
           </div>
-          
+
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="text-green-600 text-3xl mb-4">📊</div>
             <h3 className="text-lg font-semibold mb-2">Complexity Analysis</h3>
@@ -38,7 +39,7 @@ const Home = () => {
               Get detailed time and space complexity analysis with scoring.
             </p>
           </div>
-          
+
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="text-purple-600 text-3xl mb-4">🎯</div>
             <h3 className="text-lg font-semibold mb-2">Interactive Visualization</h3>

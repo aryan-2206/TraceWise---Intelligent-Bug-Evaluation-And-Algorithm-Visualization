@@ -29,19 +29,19 @@ const ScoreCard = ({ score, details }) => {
         <div className="mt-6 space-y-3">
           <div className="flex justify-between">
             <span className="text-gray-600">Readability:</span>
-            <span className="font-medium">{details.readability || 'N/A'}</span>
+            <span className="font-medium">{details.component_scores?.readability ?? 'N/A'}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-600">Efficiency:</span>
-            <span className="font-medium">{details.efficiency || 'N/A'}</span>
+            <span className="font-medium">{details.component_scores?.efficiency ?? 'N/A'}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-600">Correctness:</span>
-            <span className="font-medium">{details.correctness || 'N/A'}</span>
+            <span className="font-medium">{details.component_scores?.correctness ?? 'N/A'}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-600">Best Practices:</span>
-            <span className="font-medium">{details.bestPractices || 'N/A'}</span>
+            <span className="font-medium">{details.component_scores?.best_practices ?? 'N/A'}</span>
           </div>
         </div>
       )}
