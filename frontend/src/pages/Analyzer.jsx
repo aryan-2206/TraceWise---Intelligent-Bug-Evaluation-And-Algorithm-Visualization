@@ -224,10 +224,10 @@ const Analyzer = () => {
                       className="h-full"
                     >
                       {activeTab === 'results' && <ResultPanel results={results} />}
-                      {activeTab === 'score' && <ScoreCard score={results.score} details={results.scoreDetails} />}
+                      {activeTab === 'score' && <ScoreCard score={results.score} details={results.score_details || results.scoreDetails} />}
                       {activeTab === 'bugs' && <BugList bugs={results.bugs} />}
                       {activeTab === 'visualization' && <VisualizationPanel visualizationData={results.visualization} />}
-                      {activeTab === 'info' && <AlgorithmInfo algorithmInfo={results.algorithmInfo} />}
+                      {activeTab === 'info' && <AlgorithmInfo algorithmInfo={results.algorithm_info || results.algorithmInfo} />}
                     </motion.div>
                   </AnimatePresence>
                 </div>
