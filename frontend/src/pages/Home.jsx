@@ -38,7 +38,7 @@ const Home = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-primary-400 text-sm font-medium mb-8">
             <Cpu size={16} />
-            <span>Intelligent Algorithm Engine</span>
+            <span>TraceWise - Intelligent Algorithm Engine</span>
           </div>
           
           <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-8">
