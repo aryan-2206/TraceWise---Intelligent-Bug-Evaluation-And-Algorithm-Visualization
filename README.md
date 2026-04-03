@@ -30,9 +30,9 @@ Instantly receive precise component scorings identifying Big-O runtimes, syntax 
 ### 🌌 Dynamic Visualizers
 Visualizations transform abstract arrays and graphs into gorgeous, step-by-step framer-motion animations.
 
-| Binary Search Trace |
-| :---: |
-| <img src="./source/visualization.png" alt="Binary Search Space Trace" width="100%"> |
+| Binary Search Trace | 
+| :---: | :---: |
+| <img src="./source/visualization.png" alt="Binary Search Space Trace" width="100%"> | <img src="./source/visans.png" alt="Binary Search Space Trace" width="100%"> |
 
 | Array Sorting Visuals | Graph Path Traversals (DFS/BFS) |
 | :---: | :---: |
