@@ -8,7 +8,7 @@ Advanced algorithm analysis and visualization tool that helps developers underst
 
 <p align="center">
   <em>(Demo Video Placeholder)</em><br/>
-  <b><a href="#">▶️ Watch Full Demo</a></b>
+  <b><a href="https://drive.google.com/drive/folders/1TCJuctwN-Nhv99V2Y7b6Fo1HPvS-oN-3?usp=sharing">▶️ Watch Full Demo</a></b>
 </p>
 
 ---
