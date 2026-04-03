@@ -14,12 +14,30 @@ Advanced algorithm analysis and visualization tool that helps developers underst
 -->
 *`[Insert Demo Video Here]`*
 
-### Visualizations & Dashboard
-![Code Analysis Dashboard](./dashboard.png)
-*(Dashboard Interface)*
+### Workspace & Dashboard
+![TraceWise Dashboard](./source/dashboard.png)
+*(Interactive Code Editor Workspace)*
 
-![Graph & Sorting Visulizer](./visualization.png)
-*(Dynamic Runtime Traces)*
+![Code Analysis Workspace](./source/workspace.png)
+*(Dashboard Interface & Summary)*
+## Allows code in Python, JavaScript, and C++
+
+### Results & Metrics
+![Assessment Metrics](./source/metrics.png)
+*(Detailed Code Quality Scoring & Metric Breakdown)*
+
+![Algorithm Information](./source/algoinfo.png)
+*(Algorithm Detection Intelligence)*
+
+### Dynamic Visualizers
+![Binary Search Algorithm Visualization](./source/visualization.png)
+*(Tracing Binary Space)*
+
+![Sorting Algorithm Visualization](./source/sorting_visualizer.png)
+*(Sorting Array State Animations)*
+
+![Graph Algorithm Visualization](./source/graph_visualizer.png)
+*(DFS/BFS Node Traversals)*
 
 ---
 
