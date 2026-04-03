@@ -76,7 +76,7 @@ const ScoreCard = ({ score, details }) => {
                   </div>
                   
                   <span className="font-bold text-white bg-white/10 px-3 py-1 rounded-lg">
-                    {value ?? 'N/A'}/25
+                    {value ?? 'N/A'}/100
                   </span>
                 </motion.div>
               ))}
