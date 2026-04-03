@@ -1,0 +1,82 @@
+[
+  {
+    "description": "Simple connected graph - DFS",
+    "input": "4\n[[1, 2], [0, 3], [0, 3], [1, 2]]\n0\n",
+    "expected_output": "0 1 3 2"
+  },
+  {
+    "description": "Simple connected graph - BFS",
+    "input": "4\n[[1, 2], [0, 3], [0, 3], [1, 2]]\n0\n",
+    "expected_output": "0 1 2 3"
+  },
+  {
+    "description": "Disconnected graph",
+    "input": "4\n[[1], [0], [3], [2]]\n0\n",
+    "expected_output": "0 1"
+  },
+  {
+    "description": "Single node",
+    "input": "1\n[[]]\n0\n",
+    "expected_output": "0"
+  },
+  {
+    "description": "Linear graph",
+    "input": "5\n[[1], [0, 2], [1, 3], [2, 4], [3]]\n0\n",
+    "expected_output": "0 1 2 3 4"
+  },
+  {
+    "description": "Star graph",
+    "input": "6\n[[1, 2, 3, 4, 5], [0], [0], [0], [0], [0]]\n0\n",
+    "expected_output": "0 1 2 3 4 5"
+  },
+  {
+    "description": "Complete graph",
+    "input": "4\n[[1, 2, 3], [0, 2, 3], [0, 1, 3], [0, 1, 2]]\n0\n",
+    "expected_output": "0 1 2 3"
+  },
+  {
+    "description": "Binary tree",
+    "input": "7\n[[1, 2], [0, 3, 4], [0, 5, 6], [1], [1], [2], [2]]\n0\n",
+    "expected_output": "0 1 3 4 2 5 6"
+  },
+  {
+    "description": "Graph with cycle",
+    "input": "4\n[[1, 3], [0, 2], [1, 3], [0, 2]]\n0\n",
+    "expected_output": "0 1 2 3"
+  },
+  {
+    "description": "Empty graph",
+    "input": "0\n[]\n0\n",
+    "expected_output": ""
+  },
+  {
+    "description": "Large connected graph",
+    "input": "8\n[[1, 2], [0, 3], [0, 4], [1, 5], [2, 6], [3, 7], [4, 7], [5, 6]]\n0\n",
+    "expected_output": "0 1 3 5 7 6 4 2"
+  },
+  {
+    "description": "Dijkstra - Simple weighted graph",
+    "input": "4\n[[0, 1, 4, 0], [1, 0, 2, 5], [4, 2, 0, 1], [0, 5, 1, 0]]\n0\n",
+    "expected_output": "[0, 1, 3, 4]"
+  },
+  {
+    "description": "Dijkstra - Disconnected graph",
+    "input": "3\n[[0, 1, 0], [1, 0, 0], [0, 0, 0]]\n0\n",
+    "expected_output": "[0, 1, 999999]"
+  },
+  {
+    "description": "Dijkstra - Complex graph",
+    "input": "5\n[[0, 10, 3, 0, 0], [10, 0, 1, 2, 0], [3, 1, 0, 8, 4], [0, 2, 8, 0, 7], [0, 0, 4, 7, 0]]\n0\n",
+    "expected_output": "[0, 4, 3, 6, 7]"
+  },
+  {
+    "description": "Dijkstra - Single node",
+    "input": "1\n[[0]]\n0\n",
+    "expected_output": "[0]"
+  },
+  {
+    "description": "Dijkstra - No path",
+    "input": "3\n[[0, 1, 0], [1, 0, 0], [0, 0, 0]]\n0\n",
+    "expected_output": "[0, 1, 999999]"
+  }
+]

@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TraceWise API Request Schema",
+  "description": "Schema for API requests to TraceWise",
+  "type": "object",
+  "properties": {
+    "code_analysis": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The source code to analyze",
+          "minLength": 1,
+          "maxLength": 10000
+        },
+        "language": {
+          "type": "string",
+          "enum": ["python", "javascript", "cpp"],
+          "description": "Programming language of the code"
+        },
+        "test_cases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string",
+                "description": "Description of the test case"
+              },
+              "input": {
+                "type": "string",
+                "description": "Input data for the test case"
+              },
+              "expected_output": {
+                "type": "string",
+                "description": "Expected output for the test case"
+              }
+            },
+            "required": ["description", "input", "expected_output"]
+          },
+          "description": "Test cases for code execution"
+        }
+      },
+      "required": ["code", "language"]
+    },
+    "code_execution": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The source code to execute",
+          "minLength": 1,
+          "maxLength": 10000
+        },
+        "language": {
+          "type": "string",
+          "enum": ["python", "javascript", "cpp"],
+          "description": "Programming language of the code"
+        },
+        "input": {
+          "type": "string",
+          "description": "Input data for code execution"
+        },
+        "timeout": {
+          "type": "integer",
+          "description": "Timeout in seconds",
+          "minimum": 1,
+          "maximum": 300
+        }
+      },
+      "required": ["code", "language"]
+    },
+    "visualization": {
+      "type": "object",
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "enum": ["binary_search", "bubble_sort", "selection_sort", "insertion_sort", "quick_sort", "merge_sort", "dfs", "bfs", "dijkstra"],
+          "description": "Algorithm to visualize"
+        },
+        "data": {
+          "type": "object",
+          "description": "Data for algorithm visualization"
+        },
+        "step": {
+          "type": "integer",
+          "description": "Specific step to visualize",
+          "minimum": 0
+        }
+      },
+      "required": ["algorithm"]
+    }
+  },
+  "required": []
+}

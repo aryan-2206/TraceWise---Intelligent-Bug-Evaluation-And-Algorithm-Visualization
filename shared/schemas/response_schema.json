@@ -1,0 +1,365 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TraceWise API Response Schema",
+  "description": "Schema for API responses from TraceWise",
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean",
+      "description": "Whether the request was successful"
+    },
+    "message": {
+      "type": "string",
+      "description": "Response message"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "analysis_result": {
+          "type": "object",
+          "properties": {
+            "algorithm": {
+              "type": "string",
+              "description": "Detected algorithm type"
+            },
+            "algorithm_info": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Algorithm name"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Algorithm description"
+                },
+                "time_complexity": {
+                  "type": "string",
+                  "description": "Time complexity"
+                },
+                "space_complexity": {
+                  "type": "string",
+                  "description": "Space complexity"
+                },
+                "use_cases": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Common use cases"
+                }
+              }
+            },
+            "complexity": {
+              "type": "string",
+              "description": "Estimated time complexity"
+            },
+            "bugs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "Bug identifier"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Bug title"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Bug description"
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": ["critical", "error", "warning", "info"],
+                    "description": "Bug severity level"
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "Line number where bug occurs"
+                  },
+                  "code_snippet": {
+                    "type": "string",
+                    "description": "Code snippet containing the bug"
+                  },
+                  "suggestion": {
+                    "type": "string",
+                    "description": "Suggestion to fix the bug"
+                  }
+                }
+              }
+            },
+            "score": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Overall quality score"
+            },
+            "score_details": {
+              "type": "object",
+              "properties": {
+                "component_scores": {
+                  "type": "object",
+                  "properties": {
+                    "correctness": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "efficiency": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "readability": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "maintainability": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "best_practices": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  }
+                },
+                "penalties": {
+                  "type": "object",
+                  "properties": {
+                    "bugs": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "integer"
+                      }
+                    },
+                    "complexity": {
+                      "type": "integer"
+                    },
+                    "quality": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "recommendations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "visualization": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "description": "Visualization type"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Visualization title"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Visualization description"
+                },
+                "steps": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  },
+                  "description": "Visualization steps"
+                },
+                "metadata": {
+                  "type": "object",
+                  "description": "Visualization metadata"
+                }
+              }
+            }
+          }
+        },
+        "execution_result": {
+          "type": "object",
+          "properties": {
+            "success": {
+              "type": "boolean",
+              "description": "Whether execution was successful"
+            },
+            "output": {
+              "type": "string",
+              "description": "Program output"
+            },
+            "error": {
+              "type": "string",
+              "description": "Execution error message"
+            },
+            "execution_time": {
+              "type": "number",
+              "description": "Execution time in seconds"
+            },
+            "exit_code": {
+              "type": "integer",
+              "description": "Program exit code"
+            }
+          }
+        },
+        "test_results": {
+          "type": "object",
+          "properties": {
+            "total_tests": {
+              "type": "integer",
+              "description": "Total number of tests"
+            },
+            "passed_tests": {
+              "type": "integer",
+              "description": "Number of passed tests"
+            },
+            "failed_tests": {
+              "type": "integer",
+              "description": "Number of failed tests"
+            },
+            "test_results": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "test_case": {
+                    "type": "integer",
+                    "description": "Test case number"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Test case description"
+                  },
+                  "input": {
+                    "type": "string",
+                    "description": "Test input"
+                  },
+                  "expected_output": {
+                    "type": "string",
+                    "description": "Expected output"
+                  },
+                  "actual_output": {
+                    "type": "string",
+                    "description": "Actual output"
+                  },
+                  "passed": {
+                    "type": "boolean",
+                    "description": "Whether test passed"
+                  },
+                  "execution_time": {
+                    "type": "number",
+                    "description": "Test execution time"
+                  },
+                  "error": {
+                    "type": "string",
+                    "description": "Test error message"
+                  }
+                }
+              }
+            },
+            "summary": {
+              "type": "object",
+              "properties": {
+                "success_rate": {
+                  "type": "number",
+                  "description": "Success rate percentage"
+                },
+                "all_passed": {
+                  "type": "boolean",
+                  "description": "Whether all tests passed"
+                },
+                "total_execution_time": {
+                  "type": "number",
+                  "description": "Total execution time"
+                }
+              }
+            }
+          }
+        },
+        "visualization_data": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Visualization type"
+            },
+            "title": {
+              "type": "string",
+              "description": "Visualization title"
+            },
+            "description": {
+              "type": "string",
+              "description": "Visualization description"
+            },
+            "steps": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Visualization steps"
+            },
+            "current_step": {
+              "type": "integer",
+              "description": "Current step number"
+            },
+            "total_steps": {
+              "type": "integer",
+              "description": "Total number of steps"
+            }
+          }
+        }
+      }
+    },
+    "error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Error code"
+        },
+        "message": {
+          "type": "string",
+          "description": "Error message"
+        },
+        "details": {
+          "type": "object",
+          "description": "Additional error details"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Response timestamp"
+        },
+        "request_id": {
+          "type": "string",
+          "description": "Request identifier"
+        },
+        "processing_time": {
+          "type": "number",
+          "description": "Processing time in seconds"
+        },
+        "version": {
+          "type": "string",
+          "description": "API version"
+        }
+      }
+    }
+  },
+  "required": ["success"]
+}
