@@ -4,40 +4,39 @@
 
 Advanced algorithm analysis and visualization tool that helps developers understand, debug, and optimize their code through intelligent analysis and interactive visualizations.
 
-## 🎥 Demo & Previews
+## 🎥 Visual Showcase
 
-*(Replace these placeholders with your actual images/videos)*
+<p align="center">
+  <em>(Demo Video Placeholder)</em><br/>
+  <b><a href="#">▶️ Watch Full Demo</a></b>
+</p>
 
-### Video Demonstration
-<!-- Add your showcase video here ->
-![Demo Video](./demo.mp4)
--->
-*`[Insert Demo Video Here]`*
+---
 
-### Workspace & Dashboard
-![TraceWise Dashboard](./source/dashboard.png)
-*(Interactive Code Editor Workspace)*
+### 💻 Intelligent Workspace
+Write, execute, and analyze algorithms dynamically using our custom React-Monaco integrations. We seamlessly parse and execute **Python**, **JavaScript**, and **C++** on the backend.
 
-![Code Analysis Workspace](./source/workspace.png)
-*(Dashboard Interface & Summary)*
-## Allows code in Python, JavaScript, and C++
+| Code Editor & Terminal | Analysis Results & Dashboard |
+| :---: | :---: |
+| <img src="./source/workspace.png" alt="Workspace Editor" width="100%"> | <img src="./source/dashboard.png" alt="Dashboard Interface" width="100%"> |
 
-### Results & Metrics
-![Assessment Metrics](./source/metrics.png)
-*(Detailed Code Quality Scoring & Metric Breakdown)*
+### 📊 Metrics & Intelligence
+Instantly receive precise component scorings identifying Big-O runtimes, syntax weaknesses, and unoptimized loops.
 
-![Algorithm Information](./source/algoinfo.png)
-*(Algorithm Detection Intelligence)*
+| Metric Breakdown | Algorithm Identification |
+| :---: | :---: |
+| <img src="./source/metrics.png" alt="Code Metrics" width="100%"> | <img src="./source/algoinfo.png" alt="Algorithmic Properties" width="100%"> |
 
-### Dynamic Visualizers
-![Binary Search Algorithm Visualization](./source/visualization.png)
-*(Tracing Binary Space)*
+### 🌌 Dynamic Visualizers
+Visualizations transform abstract arrays and graphs into gorgeous, step-by-step framer-motion animations.
 
-![Sorting Algorithm Visualization](./source/sorting_visualizer.png)
-*(Sorting Array State Animations)*
+| Binary Search Trace |
+| :---: |
+| <img src="./source/visualization.png" alt="Binary Search Space Trace" width="100%"> |
 
-![Graph Algorithm Visualization](./source/graph_visualizer.png)
-*(DFS/BFS Node Traversals)*
+| Array Sorting Visuals | Graph Path Traversals (DFS/BFS) |
+| :---: | :---: |
+| <img src="./source/sorting_visualizer.png" alt="Sorting Arrays" width="100%"> | <img src="./source/graph_visualizer.png" alt="Graph Traversals" width="100%"> |
 
 ---
 
