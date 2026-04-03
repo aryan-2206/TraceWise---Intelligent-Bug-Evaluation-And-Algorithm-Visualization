@@ -16,27 +16,36 @@ Advanced algorithm analysis and visualization tool that helps developers underst
 ### 💻 Intelligent Workspace
 Write, execute, and analyze algorithms dynamically using our custom React-Monaco integrations. We seamlessly parse and execute **Python**, **JavaScript**, and **C++** on the backend.
 
-| Code Editor & Terminal | Analysis Results & Dashboard |
-| :---: | :---: |
-| <img src="./source/workspace.png" alt="Workspace Editor" width="100%"> | <img src="./source/dashboard.png" alt="Dashboard Interface" width="100%"> |
+| TraceWise Dashboard |
+| :---: | 
+| <img src="./source/dashboard.png" alt="Dashboard Interface" width="75%"> |
+
+| Code Editor & Analytics Dashboard |
+| :---: | 
+| <img src="./source/workspace.png" alt="Workspace Editor" width="75%"> |
+
 
 ### 📊 Metrics & Intelligence
 Instantly receive precise component scorings identifying Big-O runtimes, syntax weaknesses, and unoptimized loops.
 
 | Metric Breakdown | Algorithm Identification |
 | :---: | :---: |
-| <img src="./source/metrics.png" alt="Code Metrics" width="100%"> | <img src="./source/algoinfo.png" alt="Algorithmic Properties" width="100%"> |
+| <img src="./source/metrics.png" alt="Code Metrics" width="70%"> | <img src="./source/algoinfo.png" alt="Algorithmic Properties" width="70%"> |
 
 ### 🌌 Dynamic Visualizers
 Visualizations transform abstract arrays and graphs into gorgeous, step-by-step framer-motion animations.
 
-| Binary Search Trace | 
+| Binary Search Trace | Final Output |
 | :---: | :---: |
-| <img src="./source/visualization.png" alt="Binary Search Space Trace" width="100%"> | <img src="./source/visans.png" alt="Binary Search Space Trace" width="100%"> |
+| <img src="./source/visualization.png" alt="Binary Search Space Trace" width="70%"> | <img src="./source/visans.png" alt="Binary Search Space Trace" width="70%"> |
 
-| Array Sorting Visuals | Graph Path Traversals (DFS/BFS) |
-| :---: | :---: |
-| <img src="./source/sorting_visualizer.png" alt="Sorting Arrays" width="100%"> | <img src="./source/graph_visualizer.png" alt="Graph Traversals" width="100%"> |
+| Array Sorting Visuals | 
+| :---: |
+| <img src="./source/sorting_visualizer.png" alt="Sorting Arrays" width="100%"> |
+
+| Graph Path Traversals (DFS/BFS) |
+| :---: |
+| <img src="./source/graph_visualizer.png" alt="Graph Traversals" width="100%"> |
 
 ---
 
